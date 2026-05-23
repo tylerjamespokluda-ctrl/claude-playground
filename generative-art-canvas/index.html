@@ -524,6 +524,14 @@ document.getElementById('sizeSlider').addEventListener('input', e => {
 document.getElementById('opacitySlider').addEventListener('input', e => {
   opacity = parseInt(e.target.value) / 100;
 });
+
+// --- Keyboard shortcuts ---
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'z') {
+    e.preventDefault();
+    if (snapshots.length > 0) ctx.putImageData(snapshots.pop(), 0, 0);
+  }
+});
 </script>
 </body>
 </html>
